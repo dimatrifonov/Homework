@@ -147,15 +147,13 @@ public class IntSet {
     }
 
     public boolean isSubsetOf(IntSet other) {
-        int minLength;
-        if (this.data.length < other.data.length)
-            minLength = this.data.length;
-        else
-            minLength = other.data.length;
+
+        if (this.data.length >= other.data.length)
+            return false;
 
         boolean result = true;
 
-        for (int i = 0; i < minLength; i++) {
+        for (int i = 0; i < this.data.length; i++) {
             if (this.data[i] != other.data[i]) {
                 return false;
             }
